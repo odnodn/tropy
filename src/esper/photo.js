@@ -151,6 +151,8 @@ class Photo extends Container {
   }
 
   filter({
+    aBalance = 0,
+    bBalance = 0,
     brightness = 0,
     contrast = 0,
     hue = 0,
@@ -170,6 +172,15 @@ class Photo extends Container {
     this.current.saturation = saturation
     this.sharpen(sharpen)
     this.current.sharpen = sharpen
+    this.balance(aBalance, bBalance)
+    this.current.aBalance = aBalance
+    this.current.bBalance = bBalance
+  }
+
+  balance(a = 0, b = 0) {
+    this.filters[3].a = a
+    this.filters[3].b = b
+
   }
 
   brightness(value = 0) {

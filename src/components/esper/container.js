@@ -702,6 +702,8 @@ class EsperContainer extends React.Component {
         <div className="esper-view-container">
           <div className="esper-view" ref={this.view}/>
           <EsperPanel
+            aBalance={this.state.aBalance}
+            bBalance={this.state.bBalance}
             brightness={this.state.brightness}
             contrast={this.state.contrast}
             hue={this.state.hue}
