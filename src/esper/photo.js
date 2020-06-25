@@ -36,8 +36,8 @@ class Photo extends Container {
     this.bg.filters = [
       new BalanceFilter(),
       new AdjustmentFilter(),
-      new SharpenFilter(0, width, height),
-      new ColorMatrixFilter()
+      new ColorMatrixFilter(),
+      new SharpenFilter(0, width, height)
     ]
 
     this.current = {}
@@ -60,7 +60,7 @@ class Photo extends Container {
   }
 
   get colors() {
-    return this.bg.filters[3]
+    return this.bg.filters[2]
   }
 
   get mirror() {
@@ -228,7 +228,7 @@ class Photo extends Container {
   }
 
   sharpen(intensity = 0) {
-    this.bg.filters[2].intensity = intensity
+    this.bg.filters[3].intensity = intensity
     return this
   }
 
