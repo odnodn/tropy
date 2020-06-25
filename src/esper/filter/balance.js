@@ -7,6 +7,10 @@ const frag = res.shader.load('balance.frag')
 
 
 class BalanceFilter extends PIXI.Filter {
+  #max = 100
+  #min = 100
+  #precision = 0.0032
+
   constructor(a = 0, b = 0) {
     super(undefined, frag)
     this.a = a
@@ -18,7 +22,7 @@ class BalanceFilter extends PIXI.Filter {
   }
 
   set a(value) {
-    this.uniforms.a = restrict(value, -127, 127) / 100
+    this.uniforms.a = this.restrict(value)
   }
 
   get b() {
@@ -26,12 +30,16 @@ class BalanceFilter extends PIXI.Filter {
   }
 
   set b(value) {
-    this.uniforms.b = restrict(value, -127, 127) / 100
+    this.uniforms.b = this.restrict(value)
   }
 
   set(a, b) {
     this.a = a
     this.b = b
+  }
+
+  restrict(value) {
+    return restrict(value, this.#min, this.#max) * this.#precision
   }
 }
 
