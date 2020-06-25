@@ -8,7 +8,7 @@ const frag = res.shader.load('balance.frag')
 
 class BalanceFilter extends PIXI.Filter {
   #max = 100
-  #min = 100
+  #min = -100
   #precision = 0.0032
 
   constructor(a = 0, b = 0) {
