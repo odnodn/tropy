@@ -35,7 +35,8 @@ class BalanceFilter extends PIXI.Filter {
 
   set b(value) {
     this.uniforms.b = this.restrict(value)
-    this.uniforms.c = this.uniforms.b * (0.33 / (this.#precision * this.#max))
+    this.uniforms.c =
+      Math.abs(this.uniforms.b) * (0.33 / (this.#precision * this.#max))
   }
 
   set(a, b) {
