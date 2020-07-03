@@ -92,6 +92,8 @@ module.exports = {
             hue,
             saturation,
             sharpen,
+            temperature,
+            tint,
             width,
             height,
             path,

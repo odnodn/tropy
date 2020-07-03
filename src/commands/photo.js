@@ -477,7 +477,7 @@ class Save extends Command {
       state.project
     ])
 
-    const params = { id, timestamp: meta.now, ...data }
+    let params = { id, timestamp: meta.now, ...data }
 
     yield call(db.transaction, async tx => {
       await mod.photo.save(tx, params, project)

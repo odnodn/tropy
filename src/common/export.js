@@ -65,6 +65,8 @@ const props = {
     'negative',
     'saturation',
     'sharpen',
+    'temperature',
+    'tint',
     'width'
   ],
 

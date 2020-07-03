@@ -4,19 +4,7 @@ const assert = require('assert')
 const subject = require('./subject')
 const { select, update } = require('../common/query')
 const { empty, pick } = require('../common/util')
-
-const COLUMNS = [
-  'width',
-  'height',
-  'angle',
-  'mirror',
-  'negative',
-  'brightness',
-  'contrast',
-  'hue',
-  'saturation',
-  'sharpen'
-]
+const { props } = require('../common/export')
 
 module.exports = {
   async rotate(db, { id, by }) {
@@ -40,7 +28,7 @@ module.exports = {
   },
 
   async save(db, { id, timestamp, ...data }) {
-    let image = pick(data, COLUMNS)
+    let image = pick(data, props.image)
     if (empty(image)) return
 
     assert(id != null, 'missing image id')
